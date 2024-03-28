@@ -1,0 +1,43 @@
+{
+  "name": "ptt_parser",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Wanye Wang",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/main.js",
+  "engines": {
+    "node": "^20.12.2",
+    "pnpm": "^8.3.1 || ^9.0.2"
+  },
+  "scripts": {
+    "test": "glob -c \"pnpm ts-node --test\" \"src/**/*.test.ts\"",
+    "test:coverage": "c8 glob -c \"pnpm ts-node --test\" \"src/**/*.test.ts\"",
+    "ts-node": "node --no-warnings=ExperimentalWarning --loader=ts-node/esm/transpile-only",
+    "build": "tsc -b tsconfig.build.json",
+    "start": "node --env-file=.env --enable-source-maps ./dist/main.js",
+    "start:dev": "node --env-file=.env --no-warnings=ExperimentalWarning --loader=ts-node/esm/transpile-only ./src/main.ts",
+    "migrate:make": "pnpm ts-node ./node_modules/knex/bin/cli.js migrate:make -x ts",
+    "migrate:up": "pnpm ts-node --env-file=.env ./node_modules/knex/bin/cli.js migrate:up",
+    "migrate:down": "pnpm ts-node --env-file=.env ./node_modules/knex/bin/cli.js migrate:down",
+    "lint": "eslint knexfile.ts \"src/**/*.ts\" --fix"
+  },
+  "dependencies": {
+    "camelcase-keys": "^9.1.3",
+    "knex": "^3.1.0",
+    "node-html-parser": "^6.1.13",
+    "pg": "^8.11.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^8.57.0",
+    "@stylistic/eslint-plugin": "^1.7.2",
+    "@types/node": "^20.12.2",
+    "@types/pg": "^8.11.5",
+    "c8": "^9.1.0",
+    "glob": "^10.3.12",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.7.1"
+  }
+}
