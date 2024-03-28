@@ -1,13 +1,16 @@
 {
   "compilerOptions": {
     "module": "NodeNext",
-    "target": "ES2022",
-    "lib": ["ES2023"],
+    "target": "ES2024",
+    "lib": ["ES2024", "ESNext.Collection", "ESNext.Iterator"],
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noImplicitOverride": true,
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+    "exactOptionalPropertyTypes": false,
+    "rewriteRelativeImportExtensions": false,
+    "erasableSyntaxOnly": true
   }
 }
